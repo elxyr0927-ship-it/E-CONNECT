@@ -73,6 +73,12 @@ const CollectorPage = () => {
   };
 
 
+  const handleCompletePickup = (requestId) => {
+    const collectorName = localStorage.getItem('workerName');
+    socket.emit('pickupComplete', { requestId, collectorName });
+    setPickupRequests((prev) => prev.filter((req) => req.id !== requestId));
+  };
+
   return (
     <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
       <h1>Collector View</h1>
@@ -89,12 +95,30 @@ const CollectorPage = () => {
         {truckPosition && <Marker position={truckPosition} icon={TruckIcon} />}
         {route.length > 0 && <Polyline positions={route.map(p => [p.lat, p.lng])} color="blue" />}
       </MapContainer>
-      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000, background: 'white', padding: 10, borderRadius: 5 }}>
+      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000, background: 'white', padding: 10, borderRadius: 5, maxHeight: '80vh', overflowY: 'auto' }}>
         {!dumpsite && <p>Click on the map to set the dumpsite location.</p>}
         {dumpsite && !isDriving && <button onClick={handleCalculateRoute} disabled={pickupRequests.length === 0}>
           Calculate Route and Start Driving
         </button>}
         {isDriving && <p>Route is in progress...</p>}
+
+        <div style={{ marginTop: '20px' }}>
+          <h3>Pickup Requests</h3>
+          {pickupRequests.length === 0 ? (
+            <p>No active requests.</p>
+          ) : (
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+              {pickupRequests.map((req) => (
+                <li key={req.id} style={{ marginBottom: '10px' }}>
+                  <span>Request ID: {req.id.substring(0, 6)}...</span>
+                  <button onClick={() => handleCompletePickup(req.id)} style={{ marginLeft: '10px' }}>
+                    Complete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );
