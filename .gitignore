@@ -1,0 +1,47 @@
+node_modules/
+
+# OSRM datasets and generated routing files
+*.osm.pbf
+*.osrm*
+
+# Explicit OSRM artifacts
+/dumaguete.osrm.geometry
+/dumaguete.osrm.icd
+/dumaguete.osrm.mldgr
+/dumaguete.osrm.nbg_nodes
+
+# Additional OSRM binary artifacts
+/dumaguete.osrm
+/dumaguete.osrm copy.tls
+/dumaguete.osrm.cell_metrics
+/dumaguete.osrm.cnbg_to_ebg
+/dumaguete.osrm.cnbg
+/dumaguete.osrm.cells
+/dumaguete.osrm.datasource_names
+/dumaguete.osrm.ebg
+/dumaguete.osrm.ebg_nodes
+/dumaguete.osrm.edges
+/dumaguete.osrm.enw
+/dumaguete.osrm.fileIndex
+
+# Remaining OSRM artifacts
+/dumaguete.osrm.maneuver_overrides
+/dumaguete.osrm.names
+/dumaguete.osrm.partition
+/dumaguete.osrm.properties
+/dumaguete.osrm.ramIndex
+/dumaguete.osrm.timestamp
+/dumaguete.osrm.restrictions
+/dumaguete.osrm.tld
+/dumaguete.osrm.turn_duration_penalties
+/dumaguete.osrm.tls
+/dumaguete.osrm.turn_penalties_index
+
+
+
+
+# Local map build artifacts and tool caches
+/map/
+/osmium-tool/
+/osnum/
+
