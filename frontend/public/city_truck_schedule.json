@@ -1,0 +1,334 @@
+{
+    "schedules": [
+        {
+            "barangayId": 1,
+            "barangayName": "Barangay 1 (Poblacion)",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please place bins outside by 5:30 AM"
+        },
+        {
+            "barangayId": 2,
+            "barangayName": "Barangay 2 (Poblacion)",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection may be delayed during heavy rain"
+        },
+        {
+            "barangayId": 3,
+            "barangayName": "Barangay 3 (Poblacion)",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please use designated collection points"
+        },
+        {
+            "barangayId": 4,
+            "barangayName": "Barangay 4 (Poblacion)",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 5,
+            "barangayName": "Barangay 5 (Poblacion)",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Separate wet and dry waste"
+        },
+        {
+            "barangayId": 6,
+            "barangayName": "Barangay 6 (Poblacion)",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 7,
+            "barangayName": "Barangay 7 (Poblacion)",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please place bins outside by 5:30 AM"
+        },
+        {
+            "barangayId": 8,
+            "barangayName": "Barangay 8 (Poblacion)",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 9,
+            "barangayName": "Barangay Bagacay",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection starts at the main road"
+        },
+        {
+            "barangayId": 10,
+            "barangayName": "Barangay Bajumpandan",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 11,
+            "barangayName": "Barangay Balugo",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please use designated collection points"
+        },
+        {
+            "barangayId": 12,
+            "barangayName": "Barangay Banilad",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 13,
+            "barangayName": "Barangay Bantayan",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection may be delayed during heavy rain"
+        },
+        {
+            "barangayId": 14,
+            "barangayName": "Barangay Batinguel",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 15,
+            "barangayName": "Barangay Bunao",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please place bins outside by 5:30 AM"
+        },
+        {
+            "barangayId": 16,
+            "barangayName": "Barangay Cadawinonan",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 17,
+            "barangayName": "Barangay Calindagan",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Separate wet and dry waste"
+        },
+        {
+            "barangayId": 18,
+            "barangayName": "Barangay Camanjac",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 19,
+            "barangayName": "Barangay Candau-ay",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection starts at the main road"
+        },
+        {
+            "barangayId": 20,
+            "barangayName": "Barangay Cantil-e",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 21,
+            "barangayName": "Barangay Daro",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please use designated collection points"
+        },
+        {
+            "barangayId": 22,
+            "barangayName": "Barangay Junob",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 23,
+            "barangayName": "Barangay Looc",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection may be delayed during heavy rain"
+        },
+        {
+            "barangayId": 24,
+            "barangayName": "Barangay Mangnao-Canal",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 25,
+            "barangayName": "Barangay Motong",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please place bins outside by 5:30 AM"
+        },
+        {
+            "barangayId": 26,
+            "barangayName": "Barangay Piapi",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 27,
+            "barangayName": "Barangay Pulantubig",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Separate wet and dry waste"
+        },
+        {
+            "barangayId": 28,
+            "barangayName": "Barangay Tabuc-tubig",
+            "residualDays": [
+                "Tuesday",
+                "Friday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": null
+        },
+        {
+            "barangayId": 29,
+            "barangayName": "Barangay Talay",
+            "residualDays": [
+                "Monday",
+                "Thursday"
+            ],
+            "collectionTime": "7:00 AM - 11:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Collection starts at the main road"
+        },
+        {
+            "barangayId": 30,
+            "barangayName": "Barangay Tinago",
+            "residualDays": [
+                "Wednesday",
+                "Saturday"
+            ],
+            "collectionTime": "6:00 AM - 10:00 AM",
+            "frequency": "Twice a week",
+            "notes": "Please use designated collection points"
+        }
+    ]
+}

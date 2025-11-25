@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": "admin1",
+      "username": "admin",
+      "password": "admin123",
+      "name": "System Admin",
+      "points": 0,
+      "district": "Dumaguete City",
+      "membership": "Admin",
+      "completedPickups": 0,
+      "scheduledPickups": 0,
+      "weeklyPoints": 0
+    },
+    {
+      "id": "u1763952116343",
+      "username": "jadela",
+      "password": "12345",
+      "name": "Jessa",
+      "points": 0,
+      "district": "Dumaguete City",
+      "membership": "Eco Citizen",
+      "completedPickups": 0,
+      "scheduledPickups": 0,
+      "weeklyPoints": 0
+    },
+    {
+      "id": "u1764048001705",
+      "username": "lele",
+      "password": "123",
+      "name": "lexie",
+      "barangay": "Calindagan",
+      "points": 10,
+      "district": "Calindagan",
+      "membership": "Eco Citizen",
+      "completedPickups": 1,
+      "scheduledPickups": 0,
+      "weeklyPoints": 0
+    }
+  ],
+  "workers": [
+    {
+      "id": "w1",
+      "username": "worker1",
+      "password": "123",
+      "name": "John Doe"
+    },
+    {
+      "id": "w1764048246239",
+      "username": "le",
+      "password": "123",
+      "name": "lelel",
+      "earnings_wallet": 600,
+      "workerType": "freelancer"
+    }
+  ]
+}
