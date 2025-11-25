@@ -1,4 +1,9 @@
 node_modules/
+dist/
+.env
+
+
+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
 
 # OSRM datasets and generated routing files
 *.osm.pbf

@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "username": "user1",
+      "password": "123",
+      "name": "Alex Santos",
+      "points": 1250,
+      "district": "Barangay Poblacion",
+      "membership": "Eco Warrior",
+      "completedPickups": 5,
+      "scheduledPickups": 1,
+      "weeklyPoints": 45
+    },
+    {
+      "username": "user2",
+      "password": "123",
+      "name": "Maria Clara",
+      "points": 3400,
+      "district": "Barangay Taclobo",
+      "membership": "Eco Legend",
+      "completedPickups": 18,
+      "scheduledPickups": 0,
+      "weeklyPoints": 120
+    }
+  ],
+  "workers": [
+    {
+      "username": "worker1",
+      "password": "123",
+      "name": "John Doe"
+    },
+    {
+      "username": "worker2",
+      "password": "password101",
+      "name": "Jane Smith"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+// List of barangays in Dumaguete City
+export const DUMAGUETE_BARANGAYS = [
+    'Poblacion 1',
+    'Poblacion 2',
+    'Poblacion 3',
+    'Poblacion 4',
+    'Poblacion 5',
+    'Poblacion 6',
+    'Poblacion 7',
+    'Poblacion 8',
+    'Bagacay',
+    'Bajumpandan',
+    'Balugo',
+    'Banilad',
+    'Bantayan',
+    'Batinguel',
+    'Bunao',
+    'Cadawinonan',
+    'Calindagan',
+    'Camanjac',
+    'Candau-ay',
+    'Cantil-e',
+    'Daro',
+    'Junob',
+    'Looc',
+    'Mangnao-Canal',
+    'Motong',
+    'Piapi',
+    'Pulantubig',
+    'Tabuc-tubig',
+    'Taclobo',
+    'Talay'
+];
+
+export default DUMAGUETE_BARANGAYS;

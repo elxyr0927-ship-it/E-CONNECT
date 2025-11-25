@@ -1,0 +1,287 @@
+{
+  "city": "Dumaguete City",
+  "province": "Negros Oriental",
+  "region": "Central Visayas (Region VII)",
+  "zip_code": "6200",
+  "total_count": 30,
+  "barangays": [
+    {
+      "id": 1,
+      "name": "Bagacay",
+      "coordinates": {
+        "latitude": 9.3009,
+        "longitude": 123.2968,
+        "location_note": "Near Romero Highway & SSS Building"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bajumpandan",
+      "coordinates": {
+        "latitude": 9.2772,
+        "longitude": 123.2917,
+        "location_note": "Barangay Hall proper"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Balugo",
+      "coordinates": {
+        "latitude": 9.3128,
+        "longitude": 123.2617,
+        "location_note": "Upland area, near elementary school"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Banilad",
+      "coordinates": {
+        "latitude": 9.2628,
+        "longitude": 123.3017,
+        "location_note": "Southern boundary near Bacong"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Bantayan",
+      "coordinates": {
+        "latitude": 9.3269,
+        "longitude": 123.3025,
+        "location_note": "Near Bantayan estero/creek"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Barangay 1",
+      "alias": "Tinago",
+      "coordinates": {
+        "latitude": 9.3075,
+        "longitude": 123.3092,
+        "location_note": "Near Dumaguete Port/Quezon Park south"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Barangay 2",
+      "alias": "Upper Luke Wright",
+      "coordinates": {
+        "latitude": 9.3085,
+        "longitude": 123.3070,
+        "location_note": "Near Cathedral/Luke Wright area"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Barangay 3",
+      "alias": "Business District",
+      "coordinates": {
+        "latitude": 9.3065,
+        "longitude": 123.3065,
+        "location_note": "Colon St. Extension area"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Barangay 4",
+      "alias": "Rizal Boulevard",
+      "coordinates": {
+        "latitude": 9.3040,
+        "longitude": 123.3075,
+        "location_note": "South Rizal Boulevard area"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Barangay 5",
+      "alias": "Silliman Area",
+      "coordinates": {
+        "latitude": 9.3110,
+        "longitude": 123.3070,
+        "location_note": "Silliman University adjacent"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Barangay 6",
+      "alias": "Cambagroy",
+      "coordinates": {
+        "latitude": 9.3090,
+        "longitude": 123.3060,
+        "location_note": "Downtown near Public Market"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Barangay 7",
+      "alias": "Mangga",
+      "coordinates": {
+        "latitude": 9.3095,
+        "longitude": 123.3045,
+        "location_note": "Near Ceres Terminal area"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Barangay 8",
+      "alias": "Cervantes Extension",
+      "coordinates": {
+        "latitude": 9.3100,
+        "longitude": 123.3020,
+        "location_note": "Cervantes St. area"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Batinguel",
+      "coordinates": {
+        "latitude": 9.3042,
+        "longitude": 123.2886,
+        "location_note": "Central Batinguel"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Buñao",
+      "coordinates": {
+        "latitude": 9.3350,
+        "longitude": 123.2880,
+        "location_note": "Northern area near river"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Cadawinonan",
+      "coordinates": {
+        "latitude": 9.3030,
+        "longitude": 123.2763,
+        "location_note": "Housing project area"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Calindagan",
+      "coordinates": {
+        "latitude": 9.2920,
+        "longitude": 123.3030,
+        "location_note": "Near Robinsons Place/Highway"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Camanjac",
+      "coordinates": {
+        "latitude": 9.3410,
+        "longitude": 123.2830,
+        "location_note": "Northernmost tip"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Candau-ay",
+      "coordinates": {
+        "latitude": 9.3100,
+        "longitude": 123.2750,
+        "location_note": "Near river/bridge"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Cantil-e",
+      "coordinates": {
+        "latitude": 9.2850,
+        "longitude": 123.2650,
+        "location_note": "Western upland"
+      }
+    },
+    {
+      "id": 21,
+      "name": "Daro",
+      "coordinates": {
+        "latitude": 9.3192,
+        "longitude": 123.3019,
+        "location_note": "Near Daro Market/Rotonda"
+      }
+    },
+    {
+      "id": 22,
+      "name": "Junob",
+      "coordinates": {
+        "latitude": 9.2980,
+        "longitude": 123.2780,
+        "location_note": "Near Junob National High School"
+      }
+    },
+    {
+      "id": 23,
+      "name": "Looc",
+      "coordinates": {
+        "latitude": 9.3135,
+        "longitude": 123.3090,
+        "location_note": "Near Dumaguete Pier area"
+      }
+    },
+    {
+      "id": 24,
+      "name": "Mangnao-Canal",
+      "coordinates": {
+        "latitude": 9.2720,
+        "longitude": 123.2980,
+        "location_note": "Southern area"
+      }
+    },
+    {
+      "id": 25,
+      "name": "Motong",
+      "coordinates": {
+        "latitude": 9.3280,
+        "longitude": 123.2960,
+        "location_note": "North of Daro"
+      }
+    },
+    {
+      "id": 26,
+      "name": "Piapi",
+      "coordinates": {
+        "latitude": 9.3210,
+        "longitude": 123.3070,
+        "location_note": "North coastal area"
+      }
+    },
+    {
+      "id": 27,
+      "name": "Pulantubig",
+      "coordinates": {
+        "latitude": 9.3220,
+        "longitude": 123.2920,
+        "location_note": "Near Judy's Republic/River"
+      }
+    },
+    {
+      "id": 28,
+      "name": "Tabuc-tubig",
+      "coordinates": {
+        "latitude": 9.2990,
+        "longitude": 123.3040,
+        "location_note": "Near Foundation University"
+      }
+    },
+    {
+      "id": 29,
+      "name": "Taclobo",
+      "coordinates": {
+        "latitude": 9.3081,
+        "longitude": 123.2959,
+        "location_note": "Central/Behind Provincial Hospital"
+      }
+    },
+    {
+      "id": 30,
+      "name": "Talay",
+      "coordinates": {
+        "latitude": 9.2880,
+        "longitude": 123.2780,
+        "location_note": "Near Highway to Valencia"
+      }
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+/* Mobile responsive styles for CollectorPage */
+
+/* Base mobile-first approach */
+.collector-page {
+  padding: 16px !important;
+  gap: 20px !important;
+}
+
+/* Hero section mobile fixes */
+.collector-page header {
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+}
+
+.collector-page header h1 {
+  font-size: clamp(1.4rem, 5vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+.collector-page header p {
+  font-size: 0.9rem !important;
+}
+
+/* Stats grid mobile */
+.collector-page section:first-of-type {
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+}
+
+/* Main layout - stack on mobile */
+.collector-page>div:last-of-type {
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+}
+
+/* Map card mobile */
+.collector-page section>div:first-child {
+  padding: 12px !important;
+}
+
+/* Card header - stack buttons on mobile */
+.collector-page section>div:first-child>div:first-child {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.collector-page section>div:first-child>div:first-child>div:last-child {
+  width: 100%;
+  flex-direction: column !important;
+}
+
+.collector-page section>div:first-child>div:first-child>div:last-child button {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Map responsive height */
+.collector-page .leaflet-container {
+  min-height: 300px !important;
+  height: 40vh !important;
+}
+
+/* Profile card mobile */
+.collector-page header>div:last-child {
+  flex-direction: row !important;
+  padding: 12px !important;
+}
+
+/* Side panel mobile */
+.collector-page aside {
+  gap: 12px !important;
+}
+
+/* Modal mobile fixes */
+.collector-page [style*="position: fixed"]>div {
+  width: 95% !important;
+  max-width: 95% !important;
+  padding: 20px !important;
+}
+
+/* Icon grid in modal */
+.collector-page [style*="position: fixed"]>div>div:nth-child(2) {
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
+  gap: 12px !important;
+}
+
+/* Buttons mobile touch targets */
+.collector-page button {
+  min-height: 44px !important;
+  font-size: 0.9rem !important;
+}
+
+/* Queue list mobile */
+.collector-page aside ul {
+  gap: 8px !important;
+}
+
+.collector-page aside ul li {
+  padding: 10px !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .collector-page {
+    padding: 24px !important;
+    gap: 28px !important;
+  }
+
+  .collector-page header {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .collector-page section:first-of-type {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+
+  .collector-page section>div:first-child>div:first-child {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .collector-page section>div:first-child>div:first-child>div:last-child {
+    width: auto;
+    flex-direction: row !important;
+  }
+
+  .collector-page section>div:first-child>div:first-child>div:last-child button {
+    width: auto !important;
+  }
+
+  .collector-page aside ul li {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+  .collector-page {
+    padding: 32px clamp(16px, 4vw, 56px) !important;
+    gap: 32px !important;
+  }
+
+  .collector-page>div:last-of-type {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .collector-page .leaflet-container {
+    min-height: 360px !important;
+    height: auto !important;
+  }
+}
