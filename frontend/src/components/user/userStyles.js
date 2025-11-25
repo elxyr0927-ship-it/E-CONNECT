@@ -414,7 +414,7 @@ export const styles = {
         fontSize: '1rem',
         width: '200px',
     },
-    navBar: {
+    navigationBar: {
         position: 'fixed',
         bottom: 0,
         left: 0,

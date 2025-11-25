@@ -10,8 +10,10 @@ import PickupHistoryPanel from './PickupHistoryPanel';
 
 import IconSelectorModal from './IconSelectorModal';
 import RequestDetailsModal from './RequestDetailsModal';
+import JunkshopFinder from './JunkshopFinder';
 import { styles } from './collectorStyles';
 import brgyData from '../../data/brgy.json';
+import './CollectorDashboard.css';
 
 const GigView = ({ collectorName, onStatusChange, isOnline }) => {
     const { socket } = useSocket();
@@ -34,6 +36,8 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
     const [totalEarnings, setTotalEarnings] = useState(0); // Fetch from backend
     const [wasteFilter, setWasteFilter] = useState('all'); // 'all', 'recyclable', 'bulk'
     const [isSettingDumpsite, setIsSettingDumpsite] = useState(false);
+    const [showJunkshopFinder, setShowJunkshopFinder] = useState(false);
+    const [lastCompletedRequest, setLastCompletedRequest] = useState(null);
 
     // Fetch worker earnings from backend
     useEffect(() => {
@@ -214,8 +218,8 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
     };
 
     const handleCalculateRoute = () => {
-        if (!dumpsite || pickupRequests.length === 0) {
-            alert('Need dumpsite and requests to calculate route.');
+        if (!dumpsite) {
+            alert('Need dumpsite to calculate route.');
             return;
         }
         socket.emit('calculateRoute', { dumpsite });
@@ -261,6 +265,12 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
         }
 
         socket.emit('pickupResult', { id: currentStop.id, status, collectorName });
+
+        // Store last completed request for junkshop finder
+        if (status === 'success') {
+            setLastCompletedRequest(currentStop);
+        }
+
         setCurrentStop(null);
         setSelectedRequest(null);
         isPausedRef.current = false;
@@ -289,7 +299,7 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
     const mapRequests = currentStop ? [currentStop] : [];
 
     return (
-        <div style={styles.page}>
+        <div className="collector-page">
             <CollectorHeader
                 collectorName={collectorName}
                 status={isOnline ? 'available' : 'offline'}
@@ -304,8 +314,8 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
                 earnings={totalEarnings}
             />
 
-            <div style={styles.layout}>
-                <div style={{ width: '100%' }}>
+            <div className="collector-layout">
+                <div className="collector-main">
                     {/* Freelancer Specific Banner */}
                     <div style={{
                         marginBottom: '16px',
@@ -392,7 +402,7 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
                     </div>
                 </div>
 
-                <div style={styles.sidePanel}>
+                <div className="collector-sidebar">
                     {currentStop && (
                         <PickupRequestCard
                             request={currentStop}
@@ -402,6 +412,61 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
                             isPaid={currentStop.wasteType === 'bulk'}
                             earnings={currentStop.wasteType === 'bulk' ? (currentStop.price || 200) * 0.8 : 0}
                         />
+                    )}
+
+                    {/* Find Junkshop Button - Show after completing recyclable pickup */}
+                    {lastCompletedRequest && ['recyclable', 'biodegradable'].includes(lastCompletedRequest.wasteType) && (
+                        <div style={{
+                            backgroundColor: '#ecfdf5',
+                            border: '2px solid #10b981',
+                            borderRadius: '12px',
+                            padding: '16px',
+                            marginBottom: '16px'
+                        }}>
+                            <div style={{ marginBottom: '12px' }}>
+                                <h4 style={{ margin: '0 0 4px', color: '#065f46', fontSize: '0.9rem' }}>
+                                    ♻️ Recyclable Pickup Completed!
+                                </h4>
+                                <p style={{ margin: 0, fontSize: '0.75rem', color: '#047857' }}>
+                                    Maximize your earnings by selling to a junkshop
+                                </p>
+                            </div>
+                            <button
+                                onClick={() => setShowJunkshopFinder(true)}
+                                style={{
+                                    width: '100%',
+                                    padding: '10px',
+                                    backgroundColor: '#10b981',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '8px',
+                                    fontWeight: '600',
+                                    fontSize: '0.875rem',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '8px'
+                                }}
+                            >
+                                🏪 Find Nearest Junkshop
+                            </button>
+                            <button
+                                onClick={() => setLastCompletedRequest(null)}
+                                style={{
+                                    width: '100%',
+                                    marginTop: '8px',
+                                    padding: '6px',
+                                    backgroundColor: 'transparent',
+                                    color: '#6b7280',
+                                    border: 'none',
+                                    fontSize: '0.75rem',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                Dismiss
+                            </button>
+                        </div>
                     )}
 
                     {pendingRequests.length > 0 && !currentStop && (
@@ -453,9 +518,14 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
                                                 }}>
                                                     {req.wasteType === 'bulk' ? '🚛 Bulk' : '🗑️ Standard'}
                                                 </span>
-                                                {req.wasteType === 'bulk' && (
+                                                {req.wasteType === 'bulk' && req.price && (
                                                     <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#15803d' }}>
-                                                        💰 ₱160
+                                                        💰 ₱{Math.round((req.price || 200) * 0.8)}
+                                                    </span>
+                                                )}
+                                                {req.wasteType !== 'bulk' && (
+                                                    <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#15803d' }}>
+                                                        💰 ₱50
                                                     </span>
                                                 )}
                                             </div>
@@ -489,6 +559,26 @@ const GigView = ({ collectorName, onStatusChange, isOnline }) => {
                 onAccept={handleAcceptRequest}
                 onDecline={() => setSelectedRequest(null)}
                 workerType="freelancer"
+            />
+
+            <JunkshopFinder
+                isOpen={showJunkshopFinder}
+                onClose={() => setShowJunkshopFinder(false)}
+                currentPosition={truckPosition}
+                wasteType={lastCompletedRequest?.wasteType || 'recyclable'}
+                onRouteToJunkshop={(junkshopLocation, junkshopName) => {
+                    // Set junkshop as dumpsite
+                    setDumpsite(junkshopLocation);
+
+                    // Automatically calculate route
+                    socket.emit('calculateRoute', { dumpsite: junkshopLocation });
+
+                    // Show notification
+                    alert(`🏪 Routing to ${junkshopName}!\n\nCalculating optimal route...\nFollow the blue line on the map.`);
+
+                    // Clear last completed request
+                    setLastCompletedRequest(null);
+                }}
             />
         </div>
     );

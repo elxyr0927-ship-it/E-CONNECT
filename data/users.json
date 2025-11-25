@@ -30,10 +30,10 @@
       "password": "123",
       "name": "lexie",
       "barangay": "Calindagan",
-      "points": 10,
+      "points": 40,
       "district": "Calindagan",
       "membership": "Eco Citizen",
-      "completedPickups": 1,
+      "completedPickups": 4,
       "scheduledPickups": 0,
       "weeklyPoints": 0
     }
@@ -50,8 +50,18 @@
       "username": "le",
       "password": "123",
       "name": "lelel",
-      "earnings_wallet": 600,
-      "workerType": "freelancer"
+      "earnings_wallet": 1290,
+      "workerType": "freelancer",
+      "jobsCompleted": 11
+    },
+    {
+      "id": "w1764073523355",
+      "username": "gov",
+      "password": "123",
+      "name": "gov",
+      "earnings_wallet": 50,
+      "workerType": "government",
+      "jobsCompleted": 1
     }
   ]
 }

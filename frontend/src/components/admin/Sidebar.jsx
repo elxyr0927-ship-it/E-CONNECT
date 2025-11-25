@@ -46,6 +46,12 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                     🏆 Rankings
                 </button>
                 <button
+                    style={activeTab === 'junkshops' ? styles.navItemActive : styles.navItem}
+                    onClick={() => setActiveTab('junkshops')}
+                >
+                    🏪 Junkshops
+                </button>
+                <button
                     style={activeTab === 'settings' ? styles.navItemActive : styles.navItem}
                     onClick={() => setActiveTab('settings')}
                 >

@@ -1,39 +1,29 @@
 import React from 'react';
-import { FiActivity, FiGift, FiHome, FiUser } from 'react-icons/fi';
 import { styles } from './userStyles';
 
-const NavigationBar = ({ activeTab, onTabChange }) => {
+const NavigationBar = ({ activeTab, setActiveTab }) => {
+    const tabs = [
+        { id: 'home', label: 'Home', icon: '🏠' },
+        { id: 'history', label: 'History', icon: '📜' },
+        { id: 'rankings', label: 'Rankings', icon: '🏆' },
+        { id: 'gcash', label: 'GCash', icon: '💰' },
+        { id: 'rewards', label: 'Rewards', icon: '🎁' },
+        { id: 'profile', label: 'Profile', icon: '👤' }
+    ];
+
     return (
-        <footer style={styles.navBar} className="user-page__nav">
-            <button
-                style={activeTab === 'home' ? styles.navButtonActive : styles.navButton}
-                onClick={() => onTabChange('home')}
-            >
-                <FiHome style={styles.navIcon} />
-                Home
-            </button>
-            <button
-                style={activeTab === 'activity' ? styles.navButtonActive : styles.navButton}
-                onClick={() => onTabChange('activity')}
-            >
-                <FiActivity style={styles.navIcon} />
-                Activity
-            </button>
-            <button
-                style={activeTab === 'rewards' ? styles.navButtonActive : styles.navButton}
-                onClick={() => onTabChange('rewards')}
-            >
-                <FiGift style={styles.navIcon} />
-                Rewards
-            </button>
-            <button
-                style={activeTab === 'profile' ? styles.navButtonActive : styles.navButton}
-                onClick={() => onTabChange('profile')}
-            >
-                <FiUser style={styles.navIcon} />
-                Profile
-            </button>
-        </footer>
+        <nav style={styles.navigationBar}>
+            {tabs.map((tab) => (
+                <button
+                    key={tab.id}
+                    style={activeTab === tab.id ? styles.navButtonActive : styles.navButton}
+                    onClick={() => setActiveTab(tab.id)}
+                >
+                    <span style={{ fontSize: '1.2rem' }}>{tab.icon}</span>
+                    <span style={{ fontSize: '0.75rem' }}>{tab.label}</span>
+                </button>
+            ))}
+        </nav>
     );
 };
 

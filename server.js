@@ -394,6 +394,27 @@ io.on('connection', (socket) => {
     io.emit('newPickupRequest', request);
   });
 
+  // Listen for special/bulk pickup requests (paid pickups)
+  socket.on('bookSpecialPickup', (data) => {
+    console.log(`Received special pickup request from ${socket.id}:`, data);
+    const userId = socket.user ? socket.user.id : socket.id;
+    const request = {
+      id: socket.id,
+      userId,
+      lat: data.lat,
+      lng: data.lng,
+      wasteType: data.wasteType || 'bulk',
+      loadSize: data.loadSize || 'base',
+      price: data.price || 150,
+      status: 'pending',
+      points: 0
+    };
+    pickupRequests.set(socket.id, request);
+    // Broadcast the special pickup request to collectors
+    io.emit('newPickupRequest', request);
+    console.log(`Special pickup broadcasted: ${request.wasteType}, ₱${request.price}`);
+  });
+
   // Listen for the collector to set the dumpsite
   socket.on('setDumpsite', (location) => {
     console.log('Dumpsite set at:', location);
@@ -405,66 +426,93 @@ io.on('connection', (socket) => {
   // Listen for the collector to start the route calculation
   socket.on('calculateRoute', async (data) => {
     console.log('Calculating route...');
-    if (!data.dumpsite || pickupRequests.size === 0) {
-      console.log('Cannot calculate route: Dumpsite or pickup requests are missing.');
+    if (!data.dumpsite) {
+      console.log('Cannot calculate route: Dumpsite is missing.');
       return;
     }
 
-    // First, build an ordered list of points using nearest neighbor (dumpsite + pickups)
-    let unvisited = [...pickupRequests.values()];
-    let currentPoint = data.dumpsite;
-    const orderedPoints = [currentPoint];
+    // Get current truck position (use socket's last known position or default)
+    const startPosition = truckPosition || data.dumpsite;
 
-    while (unvisited.length > 0) {
-      let nearestIndex = -1;
-      let minDistance = Infinity;
+    // Build ordered list of points
+    let orderedPoints = [];
 
-      unvisited.forEach((point, index) => {
-        const distance = Math.sqrt(
-          Math.pow(point.lat - currentPoint.lat, 2) +
-          Math.pow(point.lng - currentPoint.lng, 2)
-        );
-        if (distance < minDistance) {
-          minDistance = distance;
-          nearestIndex = index;
-        }
-      });
+    // If there are pickup requests, include them in the route
+    if (pickupRequests.size > 0) {
+      let unvisited = [...pickupRequests.values()];
+      let currentPoint = data.dumpsite;
+      orderedPoints = [currentPoint];
 
-      currentPoint = unvisited[nearestIndex];
-      orderedPoints.push(currentPoint);
-      unvisited.splice(nearestIndex, 1);
+      while (unvisited.length > 0) {
+        let nearestIndex = -1;
+        let minDistance = Infinity;
+
+        unvisited.forEach((point, index) => {
+          const distance = Math.sqrt(
+            Math.pow(point.lat - currentPoint.lat, 2) +
+            Math.pow(point.lng - currentPoint.lng, 2)
+          );
+          if (distance < minDistance) {
+            minDistance = distance;
+            nearestIndex = index;
+          }
+        });
+
+        currentPoint = unvisited[nearestIndex];
+        orderedPoints.push(currentPoint);
+        unvisited.splice(nearestIndex, 1);
+      }
+
+      // Return to dumpsite at the end
+      orderedPoints.push(data.dumpsite);
+    } else {
+      // Direct route to junkshop (no pickups)
+      orderedPoints = [startPosition, data.dumpsite];
+      console.log('Direct route to junkshop:', orderedPoints);
     }
-
-    // Return to dumpsite at the end
-    orderedPoints.push(data.dumpsite);
 
     let routePoints = orderedPoints;
 
-    // Try to use local OSRM (if running) for real road routing
-    try {
-      const coordinates = orderedPoints.map(p => `${p.lng},${p.lat}`).join(';');
-      const osrmUrl = `http://localhost:5000/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
-      const response = await axios.get(osrmUrl, { timeout: 5000 });
+    // Hybrid approach: Try local OSRM first, then public OSRM, then fallback to simple route
+    const osrmEndpoints = [
+      'http://localhost:5000',
+      'https://router.project-osrm.org'
+    ];
 
-      if (
-        response.data &&
-        response.data.routes &&
-        response.data.routes[0] &&
-        response.data.routes[0].geometry &&
-        response.data.routes[0].geometry.coordinates
-      ) {
-        const geometry = response.data.routes[0].geometry.coordinates;
-        routePoints = geometry.map(([lng, lat]) => ({ lat, lng }));
-        console.log('Route calculated with OSRM roads:', routePoints.length, 'points');
-      } else {
-        console.log('OSRM response missing geometry, falling back to simple route');
+    let routeCalculated = false;
+
+    for (const endpoint of osrmEndpoints) {
+      try {
+        const coordinates = orderedPoints.map(p => `${p.lng},${p.lat}`).join(';');
+        const osrmUrl = `${endpoint}/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
+        const response = await axios.get(osrmUrl, { timeout: 5000 });
+
+        if (
+          response.data &&
+          response.data.routes &&
+          response.data.routes[0] &&
+          response.data.routes[0].geometry &&
+          response.data.routes[0].geometry.coordinates
+        ) {
+          const geometry = response.data.routes[0].geometry.coordinates;
+          routePoints = geometry.map(([lng, lat]) => ({ lat, lng }));
+          console.log(`✓ Route calculated with ${endpoint}:`, routePoints.length, 'points');
+          routeCalculated = true;
+          break;
+        } else {
+          console.log(`${endpoint} response missing geometry, trying next...`);
+        }
+      } catch (error) {
+        console.log(`${endpoint} not available (${error.message}), trying next...`);
       }
-    } catch (error) {
-      console.log('OSRM not available or error occurred, using simple nearest-neighbor route');
+    }
+
+    if (!routeCalculated) {
+      console.log('⚠ All OSRM endpoints failed, using simple nearest-neighbor route (straight lines)');
     }
 
     route = routePoints;
-    console.log('Route calculated:', route.length, 'points');
+    console.log('Final route:', route.length, 'points');
 
     // Broadcast the calculated route to all clients
     io.emit('routeCalculated', route);

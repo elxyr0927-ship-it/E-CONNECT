@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import truckIconUrl from '../../assets/truck.png';
 import { styles } from './collectorStyles';
+import './CollectorDashboard.css';
 
 const TruckIcon = new L.Icon({
     iconUrl: truckIconUrl,
@@ -57,7 +58,7 @@ const LiveCollectorMap = ({
     const center = [truckPosition?.lat || 9.3068, truckPosition?.lng || 123.3054];
 
     return (
-        <div style={styles.mapCard}>
+        <div className="collector-map-card">
             <div style={styles.cardHeader}>
                 <div>
                     <p style={styles.cardEyebrow}>Live Map</p>
@@ -65,8 +66,8 @@ const LiveCollectorMap = ({
                 </div>
             </div>
 
-            <div style={styles.mapWrapper}>
-                <MapContainer center={center} zoom={15} style={styles.map}>
+            <div className="collector-map-wrapper">
+                <MapContainer center={center} zoom={15} className="collector-map-container">
                     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                     {allowInteraction && <MapClickHandler onClick={onMapClick} />}
                     <RecenterButton position={center} />

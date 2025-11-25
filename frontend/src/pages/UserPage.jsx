@@ -13,6 +13,9 @@ import LiveMap from '../components/user/LiveMap';
 import ActivityPanel from '../components/user/ActivityPanel';
 import RewardsPanel from '../components/user/RewardsPanel';
 import ProfilePanel from '../components/user/ProfilePanel';
+import PickupHistoryPanel from '../components/user/PickupHistoryPanel';
+import BarangayRankingsPanel from '../components/user/BarangayRankingsPanel';
+import GCashPanel from '../components/user/GCashPanel';
 import NavigationBar from '../components/user/NavigationBar';
 import CityTruckScheduleModal from '../components/user/CityTruckScheduleModal';
 import { styles } from '../components/user/userStyles';
@@ -598,9 +601,25 @@ const UserPage = () => {
         isVisible={activeTab === 'profile'}
       />
 
+      <PickupHistoryPanel
+        activityHistory={activityHistory}
+        isVisible={activeTab === 'history'}
+      />
+
+      <BarangayRankingsPanel
+        userData={userData}
+        isVisible={activeTab === 'rankings'}
+      />
+
+      <GCashPanel
+        userData={userData}
+        onUpdatePoints={(newPoints) => setUserData({ ...userData, points: newPoints })}
+        isVisible={activeTab === 'gcash'}
+      />
+
       <NavigationBar
         activeTab={activeTab}
-        onTabChange={handleTabChange}
+        setActiveTab={setActiveTab}
       />
 
       <CityTruckScheduleModal

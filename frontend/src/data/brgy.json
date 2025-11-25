@@ -4,6 +4,137 @@
   "region": "Central Visayas (Region VII)",
   "zip_code": "6200",
   "total_count": 30,
+  "junkshops": [
+    {
+      "id": "js1",
+      "name": "Bagacay Recycling Center",
+      "barangayName": "Bagacay",
+      "type": "junkshop",
+      "lat": 9.3009,
+      "lng": 123.2968,
+      "buyingPrices": {
+        "plastic": 15,
+        "metal": 50,
+        "paper": 4,
+        "copper": 300,
+        "aluminum": 80,
+        "mixed": 10
+      },
+      "acceptedMaterials": [
+        "plastic",
+        "metal",
+        "paper",
+        "copper",
+        "aluminum"
+      ],
+      "operatingHours": "6:00 AM - 9:00 PM",
+      "contactNumber": "0917-123-4567"
+    },
+    {
+      "id": "js2",
+      "name": "Calindagan Junk Shop",
+      "barangayName": "Calindagan",
+      "type": "junkshop",
+      "lat": 9.2920,
+      "lng": 123.3030,
+      "buyingPrices": {
+        "plastic": 18,
+        "metal": 55,
+        "paper": 5,
+        "copper": 320,
+        "aluminum": 85,
+        "mixed": 12
+      },
+      "acceptedMaterials": [
+        "plastic",
+        "metal",
+        "paper",
+        "copper",
+        "aluminum",
+        "glass"
+      ],
+      "operatingHours": "7:00 AM - 9:00 PM",
+      "contactNumber": "0918-234-5678"
+    },
+    {
+      "id": "js3",
+      "name": "Daro Scrap Buyers",
+      "barangayName": "Daro",
+      "type": "junkshop",
+      "lat": 9.3192,
+      "lng": 123.3019,
+      "buyingPrices": {
+        "plastic": 16,
+        "metal": 52,
+        "paper": 4,
+        "copper": 310,
+        "aluminum": 82,
+        "mixed": 11
+      },
+      "acceptedMaterials": [
+        "plastic",
+        "metal",
+        "paper",
+        "copper",
+        "aluminum"
+      ],
+      "operatingHours": "6:00 AM - 9:00 PM",
+      "contactNumber": "0919-345-6789"
+    },
+    {
+      "id": "js4",
+      "name": "Taclobo Recycling Hub",
+      "barangayName": "Taclobo",
+      "type": "junkshop",
+      "lat": 9.3081,
+      "lng": 123.2959,
+      "buyingPrices": {
+        "plastic": 17,
+        "metal": 54,
+        "paper": 5,
+        "copper": 315,
+        "aluminum": 84,
+        "mixed": 12
+      },
+      "acceptedMaterials": [
+        "plastic",
+        "metal",
+        "paper",
+        "copper",
+        "aluminum",
+        "electronics"
+      ],
+      "operatingHours": "7:30 AM - 9:00 PM",
+      "contactNumber": "0920-456-7890"
+    },
+    {
+      "id": "js5",
+      "name": "Bantayan Eco Junkshop",
+      "barangayName": "Bantayan",
+      "type": "junkshop",
+      "lat": 9.3269,
+      "lng": 123.3025,
+      "buyingPrices": {
+        "plastic": 19,
+        "metal": 56,
+        "paper": 6,
+        "copper": 325,
+        "aluminum": 88,
+        "mixed": 13
+      },
+      "acceptedMaterials": [
+        "plastic",
+        "metal",
+        "paper",
+        "copper",
+        "aluminum",
+        "glass",
+        "electronics"
+      ],
+      "operatingHours": "8:00 AM - 10:00 PM",
+      "contactNumber": "0921-567-8901"
+    }
+  ],
   "barangays": [
     {
       "id": 1,

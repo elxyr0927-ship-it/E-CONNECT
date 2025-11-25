@@ -5,6 +5,7 @@ import LiveCollectorMap from './LiveCollectorMap';
 import PickupRequestCard from './PickupRequestCard';
 import RequestDetailsModal from './RequestDetailsModal';
 import { styles } from './collectorStyles';
+import './CollectorDashboard.css';
 
 const BroadcastView = ({ collectorName, onStatusChange, isOnline }) => {
     const { socket } = useSocket();
@@ -179,15 +180,15 @@ const BroadcastView = ({ collectorName, onStatusChange, isOnline }) => {
     const pendingRequests = pickupRequests.filter(req => !req.status || req.status === 'pending');
 
     return (
-        <div style={styles.page}>
+        <div className="collector-page">
             <CollectorHeader
                 collectorName={collectorName}
                 status={isOnline ? 'available' : 'offline'}
                 onStatusChange={onStatusChange}
             />
 
-            <div style={styles.layout}>
-                <div style={{ width: '100%' }}>
+            <div className="collector-layout">
+                <div className="collector-main">
                     {/* LGU Specific Banner */}
                     <div style={{
                         marginBottom: '16px',
@@ -262,7 +263,7 @@ const BroadcastView = ({ collectorName, onStatusChange, isOnline }) => {
                     />
                 </div>
 
-                <div style={styles.sidePanel}>
+                <div className="collector-sidebar">
                     {/* Current Stop - Paused for Verification */}
                     {currentStop && (
                         <div style={{

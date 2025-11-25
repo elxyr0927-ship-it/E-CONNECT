@@ -24,7 +24,7 @@ const PricingPage = () => {
                         <FiArrowLeft /> Back to Home
                     </button>
                     <div style={{ ...styles.titleContainer, ...(isMobile ? styles.titleContainerMobile : {}) }}>
-                        <span style={styles.logoText}>E-Konekricing</span>
+                        <span style={styles.logoText}>E-Konek Pricing</span>
                     </div>
                 </div>
             </nav>

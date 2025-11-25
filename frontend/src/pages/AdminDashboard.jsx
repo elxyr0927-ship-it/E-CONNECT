@@ -9,6 +9,7 @@ import ReviewsPanel from '../components/admin/ReviewsPanel';
 import UsersWorkersPanel from '../components/admin/UsersWorkersPanel';
 import WorkerAssignmentPanel from '../components/admin/WorkerAssignmentPanel';
 import BarangayRankings from '../components/admin/BarangayRankings';
+import JunkshopManagementPanel from '../components/admin/JunkshopManagementPanel';
 
 const AdminDashboard = () => {
   const { socket } = useSocket();
@@ -104,6 +105,7 @@ const AdminDashboard = () => {
             {activeTab === 'users' && 'Users & Workers Management'}
             {activeTab === 'assignments' && 'Worker Assignments'}
             {activeTab === 'rankings' && 'Barangay Rankings'}
+            {activeTab === 'junkshops' && 'Junkshop Management'}
             {activeTab === 'settings' && 'Dumpsite Configuration'}
           </h1>
           <div style={styles.headerActions}>
@@ -137,6 +139,9 @@ const AdminDashboard = () => {
           )}
           {activeTab === 'rankings' && (
             <BarangayRankings />
+          )}
+          {activeTab === 'junkshops' && (
+            <JunkshopManagementPanel />
           )}
         </div>
       </main>
