@@ -7,11 +7,14 @@ const getAuthToken = () => {
 };
 
 // Create socket with current auth token
-const createSocket = () => io({
-  auth: {
-    token: getAuthToken()
-  }
-});
+const createSocket = () => {
+  const url = import.meta.env.VITE_API_BASE_URL || '';
+  return io(url, {
+    auth: {
+      token: getAuthToken()
+    }
+  });
+};
 
 const SocketContext = createContext();
 
