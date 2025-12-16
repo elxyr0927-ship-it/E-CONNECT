@@ -301,13 +301,22 @@ app.get('/api/barangay-details', (req, res) => {
   res.json(details);
 });
 
-// Serve the built React app
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
+// Serve the built React app if it exists
+const distPath = path.join(__dirname, 'frontend/dist');
+const indexHtmlPath = path.join(distPath, 'index.html');
 
-// Serve the index.html for React SPA routes
-app.get(['/', '/login', '/signup', '/user', '/collector', '/features', '/admin'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
-});
+if (fs.existsSync(distPath) && fs.existsSync(indexHtmlPath)) {
+  app.use(express.static(distPath));
+  // Serve the index.html for React SPA routes
+  app.get(['/', '/login', '/signup', '/user', '/collector', '/features', '/admin'], (req, res) => {
+    res.sendFile(indexHtmlPath);
+  });
+} else {
+  // Fallback for API-only mode (e.g. on Render)
+  app.get('/', (req, res) => {
+    res.send('Trash Tracker API is running. Frontend should be deployed separately.');
+  });
+}
 
 // --- Socket.IO Logic ---
 io.use((socket, next) => {
